@@ -28,6 +28,7 @@ Tabla de Contenidos
   - [Solución presentada](#solución-presentada-1)
   - [Algoritmo usado](#algoritmo-usado-1)
   - [Video](#video-1)
+- [Conclusiones](#conclusiones)
 
 ## Objetivos
 - Identificar las características de los tipos de navegación.
@@ -103,6 +104,8 @@ Al cumplir la misión, el algoritmo debe resolver al menos una vez cada una de l
 
 #### Resultados
 
+
+## Conclusiones
 #### Solución presentada
 
 #### Algoritmo usado
