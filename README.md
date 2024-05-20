@@ -9,7 +9,25 @@ Santiago Olaya Castaño
 
 Tabla de Contenidos
 ---
-- [Obejtivos](#Obejtivos)
+- [Objetivos](#objetivos)
+- [Consulta bibliografica](#consulta-bibliografica)
+  - [Navegación planeada](#navegación-planeada)
+  - [Navegación basada en comportamientos](#navegación-basada-en-comportamientos)
+  - [Investigaciones y desarrollode robots por Rodney Brooks y Mark Tilden](#investigaciones-y-desarrollode-robots-por-rodney-brooks-y-mark-tilden)
+  - [Algoritmos de planeación de rutas para espación con obstáculos](#algoritmos-de-planeación-de-rutas-para-espación-con-obstáculos)
+  - [Algoritmos BUG](#algoritmos-bug)
+  - [Algoritmo de solución de un laberinto (maze algorithm)](#algoritmo-de-solución-de-un-laberinto-maze-algorithm)
+- [Misiones de funcionamiento](#misiones-de-funcionamiento)
+- [Misión 1](#misión-1)
+  - [Resultados](#resultados)
+  - [Solución presentada](#solución-presentada)
+  - [Algoritmo usado](#algoritmo-usado)
+  - [Video](#video)
+- [Misión 2](#misión-2)
+  - [Resultados](#resultados-1)
+  - [Solución presentada](#solución-presentada-1)
+  - [Algoritmo usado](#algoritmo-usado-1)
+  - [Video](#video-1)
 
 ## Objetivos
 - Identificar las características de los tipos de navegación.
@@ -26,7 +44,7 @@ Tabla de Contenidos
 
 ### Algoritmos de planeación de rutas para espación con obstáculos
 
-### Alboritmos BUG
+### Algoritmos BUG
 
 - **Bug 0**
 - **Bug 1**
