@@ -104,11 +104,11 @@ Al cumplir la misión, el algoritmo debe resolver al menos una vez cada una de l
 
 #### Resultados
 
-
-## Conclusiones
 #### Solución presentada
 
 #### Algoritmo usado
 
 #### Video
 
+
+## Conclusiones
