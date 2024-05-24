@@ -104,11 +104,27 @@ Al cumplir la misión, el algoritmo debe resolver al menos una vez cada una de l
 
 
 #### Resultados
-Los materiales empleados furon 
+Los materiales empleados fueron:
 - Robot EV3 y acesorios
 - Catón paja, cinta y plastilina para formar obstáculos
 - micro SD y antena wi-fi
 - Software: ev3dev y visual studio code
+
+**Mundo utilizado**
+
+Se planeo un mundo de 6L*2L en donde L tendria el valor de 36cm ya que seria de 1.5 del largo del robot el cual es de 24cm.
+
+![Plano laberintro](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/b9b3df13-bfa7-4b24-b716-d7b8876badf7)
+
+El cual una vez implementado se vio asi
+
+![Imagen de WhatsApp 2024-05-23 a las 22 22 23_9b6e7f54](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/04f1df4e-42b2-4f9c-b12a-963e7787fffd)
+
+![Imagen de WhatsApp 2024-05-23 a las 22 22 22_03894511](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/3848e016-8468-4bce-acdd-da471f243976)
+
+![Imagen de WhatsApp 2024-05-23 a las 22 22 22_af62a34c](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/5f6cfe3c-500c-415b-b022-f5972fddc0c6)
+
+![Imagen de WhatsApp 2024-05-23 a las 22 22 23_4ac6df53](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/bba23b56-22fc-4280-8c8c-52970b7c6299)
 
 #### Solución presentada
 
