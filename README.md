@@ -114,7 +114,7 @@ Los materiales empleados fueron:
 
 Se planeo un mundo de 6L*2L en donde L tendria el valor de 36cm ya que seria de 1.5 del largo del robot el cual es de 24cm.
 
-![Plano laberintro](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/b9b3df13-bfa7-4b24-b716-d7b8876badf7)
+![Plano laberintro](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/9c5e1b17-ca95-423d-9cd2-1db6d1055940)
 
 El cual una vez implementado se vio asi
 
