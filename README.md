@@ -85,9 +85,10 @@ Como el algoritmo requiere el conocimiento de la pose del robot en su recorrido 
 **Objetivo:** Usar uno de los algoritmos MAZE para ir de la entrada P1 hasta la salida P2 del laberinto.
 
 **Materiales:**
-- Robot EV3 y acesorios
-- Catón paja para formar obstaculos
-- ev3devcon micro SD y antena wi-fi
+- Robot EV3 y accesorios
+- Tabla o piso
+- Tablillas y postes para formar obstáculos
+- IDE EV3
 
 **Reto**
 Montar el laberinto que debe tener como mínimo 6L x 2L, donde L debe ser entre 1,5 y 2,0 veces el largo del EV3.
@@ -103,12 +104,129 @@ Al cumplir la misión, el algoritmo debe resolver al menos una vez cada una de l
 
 
 #### Resultados
+Los materiales empleados furon 
+- Robot EV3 y acesorios
+- Catón paja, cinta y plastilina para formar obstáculos
+- micro SD y antena wi-fi
+- Software: ev3dev y visual studio code
 
 #### Solución presentada
 
+El algoritmo creado utiliza una combinación de detección de obstáculos y búsqueda de rutas alternativas para navegar por el laberinto. Se basa principalmente en la detección de obstáculos con el sensor ultrasónico y en la detección de líneas negras con el sensor de color para identificar la entrada y la salida del laberinto. La estrategia de solución de obstáculos implica girar en dirección opuesta a los obstáculos detectados, similar a una regla de seguimiento de pared. El uso de sonidos y luces proporciona retroalimentación visual y auditiva sobre el estado y las acciones del robot durante todo el proceso. En este algoritmo se combinaron dos tecnicas de solución la cuales fueron algoritmo de la mano Derecha/Izquierda (Right/Left Hand Rule) y búsqueda en Profundidad (Depth-First Search, DFS). El algoritmo tiene elementos de la regla de la mano derecha/izquierda en la función SolveObstacle(), donde el robot comprueba y responde a los obstáculos a su derecha e izquierda. Dependiendo de las detecciones, toma giros a la izquierda o derecha, lo cual es característico de este tipo de algoritmos. Además de elementos de búsqueda en Profundidad El robot avanza hasta que encuentra un obstáculo y luego retrocede para probar otro camino, lo cual es un enfoque típico de la búsqueda en profundidad. La función SolveLabyrinth() ejemplifica este comportamiento, donde el robot sigue un camino hasta que encuentra una barrera, retrocede y prueba otra dirección.
+
+**Aspectos Clave del Algoritmo**
+
+- **Seguimiento de Pared (Wall Following) y Reglas de la Mano:**
+  - SolveObstacle(): La función verifica obstáculos a la derecha e izquierda y decide girar según los resultados.
+  - El robot usa un sensor ultrasónico para medir distancias a los lados y determina los giros basándose en estas mediciones.
+  - Esto es similar a las reglas de la mano derecha/izquierda y algoritmo de Wall Follower, donde el robot sigue una pared para encontrar la salida.
+  
+-  **Búsqueda Exhaustiva y Movimientos Lineales:**
+  - SolveLabyrinth(): El robot avanza en línea recta hasta encontrar un obstáculo o llegar al final del laberinto.
+  - Este comportamiento es similar a una búsqueda en profundidad (DFS), ya que el robot explora un camino hasta encontrar un obstáculo y luego retrocede para intentar una ruta diferente.
+
+
 #### Algoritmo usado
+El código usado fue [Mision2.py](https://github.com/JSDaleman/Robotica-movil-Lab3/blob/main/Scripts/Mision2.py) el cual tiene la siguiente estructura:
+
+```
+Inicio
+    Mostrar mensaje de bienvenida y laberinto
+
+    Inicializar motores y sensores
+    Definir variables y constantes
+    Configurar modos de sensores
+
+    Configurar colores de luces de preparación
+    Calibrar giroscopio
+
+    Verificar y posicionar motor_a en la posición adecuada
+
+    Definir funciones de sonido:
+        SoundStart() - reproducir tono de inicio
+        SoundStartLaber() - reproducir tono de inicio de solución de laberinto
+        SoundFinishLaber() - reproducir tono de finalización de laberinto
+        SoundScanning() - reproducir tono de escaneo de obstáculos
+
+    Definir función SolveObstacle()
+        Reproducir sonido de escaneo
+        Escanear derecha
+        Si hay obstáculo a la derecha:
+            Marcar ObstaculoDerecha como verdadero
+
+        Escanear izquierda
+        Si hay obstáculo a la izquierda:
+            Marcar ObstaculoIzquierda como verdadero
+
+        Reposicionar motor_a al frente
+
+        Si hay obstáculos en ambos lados:
+            Girar 180 grados a la derecha
+            Retornar verdadero (indicando que se necesita retroceder)
+        Si hay obstáculo solo a la derecha:
+            Girar 90 grados a la izquierda
+            Retornar falso
+        Si no hay obstáculos a la derecha:
+            Girar 90 grados a la derecha
+            Retornar falso
+
+    Definir función GoToEntry()
+        Configurar luces de inicio
+        Reproducir sonido de inicio
+
+        Mientras no se detecte la línea de entrada (color):
+            Avanzar hacia adelante
+
+        Detener motores al detectar la línea
+
+    Definir función SolveLabyrinth()
+        Esperar entrada del usuario para comenzar
+
+        Medir distancia inicial con sensor ultrasónico
+        Configurar luces de resolución de laberinto
+        Calcular grados para recorrer una celda menos un margen
+
+        Reproducir sonido de inicio de laberinto
+
+        Moverse a la primera celda
+        Medir distancia con sensor ultrasónico
+
+        Mientras no se llegue al final del laberinto:
+            Mientras no se detecte un obstáculo o la meta:
+                Si la distancia medida es menor o igual a 7 cm:
+                    Detener motores
+                    Salir del bucle
+
+                Si se detecta la meta (color):
+                    Detener motores
+                    Mostrar mensaje de llegada
+                    Configurar luces de meta
+                    Salir del bucle
+
+                Continuar avanzando hacia adelante
+
+            Si se detecta la meta (color):
+                Avanzar a la siguiente celda
+                Reproducir sonido de finalización del laberinto
+                Animar luces de policía
+                Configurar luces de meta
+                Salir del bucle principal
+
+            Llamar a SolveObstacle() para decidir el próximo movimiento
+            Si SolveObstacle() retorna verdadero:
+                Avanzar a la siguiente celda
+                Llamar nuevamente a SolveObstacle()
+
+    Definir función main()
+        Llamar a GoToEntry()
+        Llamar a SolveLabyrinth()
+
+    Ejecutar función main() si el script es ejecutado como el programa principal
+
+Fin
+```
 
 #### Video
-
+[Video de resultado misión 2](https://www.youtube.com/watch?v=qZ1mem_wqYo)
 
 ## Conclusiones
