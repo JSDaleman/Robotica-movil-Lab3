@@ -39,19 +39,147 @@ Tabla de Contenidos
 
 ### Navegación planeada
 
+Cuando se habla de navegación planeada, esta hace referencia a la capacidad de un robot para determinar una ruta desde un punto de inicio hasta un destino final antes de comenzar el movimiento. Esta técnica se basa en la elaboracion previa de un mapa del entorno en el que se va a encontrar el dispositivo, y el uso de algoritmos de planificación de rutas que aseguren que el robot pueda evitar obstáculos y alcanzar su objetivo de manera eficiente. Los algoritmos más comunes para la planificación de rutas incluyen el algoritmo A*, el algoritmo Dijkstra, y otros métodos de búsqueda basados en grafos.
+
 ### Navegación basada en comportamientos
+
+La navegación basada en comportamientos, es un enfoque distinto en donde el control del robot se divide en varios comportamientos simples que operan en paralelo. Cada comportamiento responde a estímulos específicos del entorno, y la combinación de estos comportamientos resulta en una navegación efectiva. Este enfoque es más reactivo y menos dependiente de un modelo preciso del entorno. Ejemplos de comportamientos incluyen seguir paredes, evitar obstáculos y seguir una línea. La gran ventaja que trae la navegacion basada en comportamientos es que nos quitamos la necesidad de desarrollar un mapa detallado de donde va cicular el robot, lo cual lo hace una tecnica mucho mas adaptativa a diferentes entornos.
 
 ### Investigaciones y desarrollode robots por Rodney Brooks y Mark Tilden
 
+Rodney Brooks es conocido por su trabajo en robótica subsumida, un enfoque en el cual se construyen robots con múltiples capas de control, cada una encargada de tareas más complejas, desde lo básico como evitar obstáculos hasta tareas más avanzadas como la navegación completa. Este enfoque se utiliza en la serie de robots de la empresa iRobot, como las aspiradoras Roomba.
+
+Mark Tilden, por su parte, es conocido por su trabajo en BEAM robotics (Biology, Electronics, Aesthetics, and Mechanics), que se centra en la creación de robots simples que imitan el comportamiento biológico mediante circuitos analógicos en lugar de microprocesadores. Los robots BEAM son autónomos y responden directamente a su entorno sin necesidad de programación compleja.
+
 ### Algoritmos de planeación de rutas para espación con obstáculos
 
+Los algoritmos de planeación de rutas para espacios con obstáculos se diseñan para encontrar la mejor ruta posible desde un punto inicial a un destino, evitando colisiones. Entre los algoritmos más utilizados se encuentran:
+
+#### Algoritmo A*
+Este es un algoritmo de búsqueda de caminos que se utiliza ampliamente en la inteligencia artificial y la robótica para encontrar la ruta más corta entre dos puntos en un gráfico ponderado. Su eficiencia se debe a la utilización de una heurística que estima el costo restante para alcanzar el objetivo. A continuación se detallan sus componentes y funcionamiento:
+
+- **Función de Costo**: A* utiliza una función de costo `f(n) = g(n) + h(n)`, donde:
+  - `g(n)` es el costo acumulado desde el nodo inicial hasta el nodo `n`.
+  - `h(n)` es la heurística que estima el costo desde el nodo `n` hasta el objetivo. La heurística debe ser admisible, es decir, nunca debe sobrestimar el costo real para garantizar que A* encuentre el camino óptimo.
+
+- **Proceso**:
+  1. Inicia en el nodo de inicio.
+  2. Calcula `f(n)` para los nodos adyacentes.
+  3. Selecciona el nodo con el menor valor de `f(n)` y lo expande.
+  4. Repite el proceso hasta alcanzar el nodo objetivo o agotar todos los nodos.
+
+- **Aplicaciones**: A* es ideal para entornos donde se puede calcular una heurística precisa, como juegos, robótica, y aplicaciones de navegación en mapas.
+
+#### Algoritmo Dijkstra
+El algoritmo de Dijkstra es un método clásico para encontrar el camino más corto desde un nodo inicial a todos los demás nodos en un gráfico con pesos no negativos. Es considerado uno de los algoritmos más importantes en la teoría de grafos y tiene las siguientes características:
+
+- **Función de Costo**: A diferencia de A*, Dijkstra no utiliza una heurística. Se basa únicamente en el costo acumulado `g(n)`.
+
+- **Proceso**:
+  1. Inicializa el costo del nodo inicial a 0 y el de todos los demás nodos a infinito.
+  2. Selecciona el nodo no visitado con el menor costo acumulado.
+  3. Actualiza los costos de los nodos adyacentes.
+  4. Marca el nodo actual como visitado.
+  5. Repite hasta que todos los nodos hayan sido visitados.
+
+- **Limitaciones**: Si bien garantiza encontrar el camino más corto, puede ser ineficiente en gráficos grandes debido a su complejidad `O(V^2)` (donde V es el número de vértices). Sin embargo, utilizando estructuras de datos como colas de prioridad, la complejidad puede reducirse a `O(E \log V)` (donde E es el número de aristas).
+
+- **Aplicaciones**: Es ampliamente utilizado en redes de comunicación, sistemas de información geográfica (SIG), y planificación de rutas.
+
+#### RRT (Rapidly-exploring Random Trees)
+El algoritmo de Árboles de Exploración Rápida (RRT) es un método de planificación de caminos diseñado para entornos complejos y de alta dimensión. Es especialmente útil para la planificación de rutas en tiempo real en espacios no estructurados y dinámicos.
+
+- **Concepto Básico**: RRT explora el espacio de manera aleatoria, construyendo un árbol de rutas posibles desde el punto inicial hasta el objetivo.
+
+- **Proceso**:
+  1. Inicia en el nodo de inicio.
+  2. Genera un punto aleatorio en el espacio de búsqueda.
+  3. Encuentra el nodo en el árbol más cercano a este punto aleatorio.
+  4. Extiende el árbol desde el nodo más cercano hacia el punto aleatorio, creando un nuevo nodo.
+  5. Repite el proceso hasta que el nuevo nodo esté suficientemente cerca del objetivo o se alcance un límite de iteraciones.
+
+- **Ventajas**:
+  - **Exploración Rápida**: Explora rápidamente grandes áreas del espacio de búsqueda.
+  - **Adaptabilidad**: Puede adaptarse fácilmente a diferentes entornos y restricciones dinámicas.
+
+- **Limitaciones**: La ruta generada por RRT puede no ser la más corta ni la más suave. Sin embargo, variantes como RRT* (RRT estrella) mejoran la calidad de la ruta encontrando caminos óptimos asintóticamente.
+
+- **Aplicaciones**: RRT es ideal para robótica móvil, manipulación robótica, y cualquier aplicación donde el entorno es desconocido o cambia con el tiempo.
+
+
 ### Algoritmos BUG
+Los algoritmos BUG son una serie de métodos simples de navegación diseñados para que un robot se mueva desde un punto inicial a un punto final en presencia de obstáculos. Estos algoritmos son particularmente útiles en entornos desconocidos o parcialmente conocidos, donde el robot debe reaccionar a obstáculos inesperados durante su movimiento.
 
-- **Bug 0**
-- **Bug 1**
-- **Bug 3**
+#### Bug 0
+El algoritmo Bug 0 es el más básico de los algoritmos BUG. Su funcionamiento es sencillo y directo:
 
-### Algoritmo de solución de un laberinto (maze algorithm)
+1. **Movimiento Inicial**: El robot se mueve en línea recta desde su posición inicial hacia el objetivo.
+2. **Detección de Obstáculos**: Si el robot encuentra un obstáculo, cambia su estrategia.
+3. **Bordeo del Obstáculo**: El robot bordea el obstáculo en una dirección predefinida (por ejemplo, en el sentido de las agujas del reloj) hasta que pueda continuar en línea recta hacia el objetivo.
+4. **Reanudación del Movimiento**: Una vez que el obstáculo ha sido evitado, el robot retoma su movimiento en línea recta hacia el objetivo.
+
+Este algoritmo es simple y fácil de implementar, pero puede no ser el más eficiente en términos de tiempo y distancia recorrida, especialmente en entornos con muchos obstáculos.
+
+#### Bug 1
+El algoritmo Bug 1 mejora la estrategia de Bug 0 al incluir un proceso de circunnavegación completa del obstáculo:
+
+1. **Movimiento Inicial**: El robot se mueve en línea recta hacia el objetivo.
+2. **Detección de Obstáculos**: Al encontrar un obstáculo, el robot marca el punto de colisión.
+3. **Circunnavegación**: El robot circunvala completamente el obstáculo, manteniéndose en contacto con él, para encontrar el punto más cercano al objetivo desde el obstáculo.
+4. **Reanudación del Movimiento**: Una vez que se ha determinado el punto más cercano al objetivo, el robot continúa su movimiento desde este punto en línea recta hacia el objetivo.
+
+Este enfoque asegura que el robot siempre avanza hacia el objetivo de la manera más eficiente posible después de cada encuentro con un obstáculo.
+
+#### Bug 3
+El algoritmo Bug 3, también conocido como el algoritmo de la Pared Izquierda/Derecha, se basa en seguir una pared u obstáculo en una dirección específica:
+
+1. **Movimiento Inicial**: El robot se mueve en línea recta hacia el objetivo.
+2. **Detección de Obstáculos**: Al encontrar un obstáculo, el robot sigue la pared en una dirección predefinida (izquierda o derecha).
+3. **Seguimiento de la Pared**: El robot continúa siguiendo la pared hasta encontrar un punto donde pueda reanudar su movimiento hacia el objetivo.
+4. **Reanudación del Movimiento**: Una vez que se ha encontrado un punto donde el camino hacia el objetivo está libre, el robot se aleja de la pared y continúa su trayectoria directa hacia el objetivo.
+
+Este método es eficiente para evitar quedar atrapado en ciclos infinitos, siempre y cuando el entorno esté simplemente conectado (es decir, no haya áreas cerradas donde el robot no pueda escapar).
+
+### Algoritmo de Solución de un Laberinto (Maze Algorithm)
+
+Los algoritmos de solución de laberintos permiten a los robots encontrar una salida en un entorno de laberinto. Estos algoritmos son esenciales para la navegación en entornos complejos y desconocidos, donde el robot debe explorar y decidir en tiempo real la mejor manera de avanzar. A continuación, se describen algunos de los algoritmos más comunes:
+
+#### Algoritmo de Trémaux
+El algoritmo de Trémaux es un método eficiente para resolver laberintos que garantiza encontrar la salida si existe. Su funcionamiento se basa en marcar los caminos mientras el robot avanza:
+
+1. **Movimiento Inicial**: El robot comienza a moverse desde el punto de entrada del laberinto.
+2. **Marcado de Caminos**: A medida que el robot avanza, marca el camino recorrido. Si encuentra una bifurcación, elige un nuevo camino y lo marca.
+3. **Evitación de Ciclos**: Si el robot encuentra un camino ya marcado dos veces, significa que ese camino lleva a un ciclo o a un callejón sin salida, y no debe ser recorrido de nuevo.
+4. **Retorno y Cambio de Dirección**: Si el robot llega a un callejón sin salida, regresa al último punto de decisión y toma una nueva dirección no explorada.
+5. **Salida del Laberinto**: El proceso continúa hasta que el robot encuentra la salida del laberinto.
+
+El algoritmo de Trémaux es simple y asegura que el robot no quede atrapado en ciclos infinitos, encontrando eventualmente la salida si existe.
+
+#### Algoritmo de Pledge
+El algoritmo de Pledge es útil para resolver laberintos que pueden contener ciclos o bucles, permitiendo al robot salir de estos ciclos y encontrar la salida:
+
+1. **Movimiento Inicial**: El robot se mueve en línea recta hasta encontrar un obstáculo.
+2. **Contador de Ángulos**: El robot utiliza un contador de ángulos para rastrear el número de giros realizados. Inicializa el contador a cero.
+3. **Giro y Seguimiento de Pared**: Al encontrar un obstáculo, el robot gira en una dirección predefinida (por ejemplo, a la izquierda) y comienza a seguir la pared.
+4. **Actualización del Contador**: Por cada giro, el robot actualiza el contador de ángulos:
+   - Gira 90° a la izquierda: decrementa el contador en 90.
+   - Gira 90° a la derecha: incrementa el contador en 90.
+5. **Condición de Salida de Ciclos**: El robot continúa siguiendo la pared hasta que el contador de ángulos vuelva a cero, momento en el cual se puede mover en línea recta nuevamente.
+6. **Reanudación del Movimiento**: El proceso se repite hasta que el robot encuentra la salida del laberinto.
+
+El algoritmo de Pledge es particularmente útil para laberintos con múltiples ciclos, asegurando que el robot no quede atrapado en un bucle infinito.
+
+#### Algoritmo de la Mano Izquierda/Derecha
+El algoritmo de la Mano Izquierda/Derecha es uno de los métodos más intuitivos y fáciles de implementar para resolver laberintos simplemente conectados (sin islas):
+
+1. **Movimiento Inicial**: El robot comienza a moverse desde el punto de entrada del laberinto.
+2. **Seguimiento de Pared**: El robot mantiene su mano izquierda o derecha en contacto con la pared del laberinto.
+   - Mano Izquierda: El robot sigue la pared a su izquierda.
+   - Mano Derecha: El robot sigue la pared a su derecha.
+3. **Exploración Continua**: El robot sigue moviéndose a lo largo de la pared, girando en las esquinas y siguiendo cualquier camino disponible mientras mantiene el contacto con la pared.
+4. **Salida del Laberinto**: Eventualmente, el robot encontrará la salida del laberinto si el laberinto está simplemente conectado.
+
+Este método es simple y efectivo para laberintos donde todas las paredes están conectadas a la periferia, pero puede no funcionar en laberintos con islas (áreas desconectadas de las paredes exteriores).
 
 ## Misiones de funcionamiento
 Se deben resolver con navegación basada en comportamientos
