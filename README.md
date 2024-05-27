@@ -258,6 +258,9 @@ El cual una vez implementado se vio asi
 
 ![Imagen de WhatsApp 2024-05-23 a las 22 22 23_4ac6df53](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/bba23b56-22fc-4280-8c8c-52970b7c6299)
 
+**Configuración robot**
+![Imagen de WhatsApp 2024-05-27 a las 09 16 32_e451ce4d](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/766e187f-27cb-4908-b454-86f6f7eadbea)
+
 #### Solución presentada
 
 El algoritmo creado utiliza una combinación de detección de obstáculos y búsqueda de rutas alternativas para navegar por el laberinto. Se basa principalmente en la detección de obstáculos con el sensor ultrasónico y en la detección de líneas negras con el sensor de color para identificar la entrada y la salida del laberinto. La estrategia de solución de obstáculos implica girar en dirección opuesta a los obstáculos detectados, similar a una regla de seguimiento de pared. El uso de sonidos y luces proporciona retroalimentación visual y auditiva sobre el estado y las acciones del robot durante todo el proceso. En este algoritmo se combinaron dos tecnicas de solución la cuales fueron algoritmo de la mano Derecha/Izquierda (Right/Left Hand Rule) y búsqueda en Profundidad (Depth-First Search, DFS). El algoritmo tiene elementos de la regla de la mano derecha/izquierda en la función SolveObstacle(), donde el robot comprueba y responde a los obstáculos a su derecha e izquierda. Dependiendo de las detecciones, toma giros a la izquierda o derecha, lo cual es característico de este tipo de algoritmos. Además de elementos de búsqueda en Profundidad El robot avanza hasta que encuentra un obstáculo y luego retrocede para probar otro camino, lo cual es un enfoque típico de la búsqueda en profundidad. La función SolveLabyrinth() ejemplifica este comportamiento, donde el robot sigue un camino hasta que encuentra una barrera, retrocede y prueba otra dirección.
