@@ -405,7 +405,7 @@ Inicio
     Configurar modos de sensores
 
     Configurar colores de luces de preparación
-    Calibrar giroscopio
+    Calibrar giro sensor
 
     Verificar y posicionar motor_a en la posición adecuada
 
