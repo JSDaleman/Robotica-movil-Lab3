@@ -203,7 +203,6 @@ Como el algoritmo requiere el conocimiento de la pose del robot en su recorrido 
 
 #### Resultados
 
-#### Resultados
 Los materiales empleados fueron:
 - Robot EV3 y acesorios
 - Caja de herramientas y mesas para obstaculos
@@ -328,7 +327,7 @@ EJECUTAR main() si es el script principal
 ```
 
 #### Video
-
+[Video de resultado misión 1](https://youtu.be/io2skcLbUeQ)
 
 ### Misión 2
 **Objetivo:** Usar uno de los algoritmos MAZE para ir de la entrada P1 hasta la salida P2 del laberinto.
