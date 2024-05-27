@@ -192,9 +192,6 @@ Se deben resolver con navegación basada en comportamientos
 - Tabla o piso
 - Tablillas y postes para formar obstáculos
 - IDE EV3
-- Robot EV3 y acesorios
-- Catón paja para formar obstaculos
-- ev3devcon micro SD y antena wi-fi
 
 **Reto**
 Crear un espacio de trabajo que contenga al menos dos obstáculos que intercepten una línea recta entre la posición 1 y la posición 2. Con tamaño adecuado para el paso del EV3 entre obstáculos.
@@ -224,7 +221,118 @@ Los materiales empleados fueron:
 
 #### Solución presentada
 
+
+
 #### Algoritmo usado
+El código usado fue [Mision1.py](https://github.com/JSDaleman/Robotica-movil-Lab3/blob/main/Scripts/Mision1.py) el cual tiene la siguiente estructura:
+
+```
+Inicio
+    Mostrar mensaje de bienvenida y laberinto
+
+    Inicializar motores y sensores
+    Definir variables y constantes
+    Configurar modos de sensores
+
+    Configurar colores de luces de preparación
+    Calibrar giroscopio
+
+    Verificar y posicionar motor_a en la posición adecuada
+
+    Definir funciones de sonido:
+        SoundStart()
+            reproducir tono de inicio
+        SoundStartContours()
+            reproducir tono de inicio de solución de contorno
+        SoundFinisRute()
+            reproducir tono de finalización de ruta
+        SoundFinishContours()
+            reproducir tono de finalización de contorno
+
+    Definir función SearchLine()
+        Mientras True:
+            Girar a la izquierda con velocidad de 10%
+            Si se detecta la línea (Color.reflected_light_intensity <= 10):
+                Detener motores
+                Salir del bucle
+
+    Definir función LineFollower()
+        Mientras True:
+            Medir distancia con sensor ultrasónico
+            Si distancia <= 7 cm:
+                Detener motores
+                Retornar (True, True) // Obstáculo detectado
+
+            Si sobre la línea (Color.reflected_light_intensity <= 16):
+                Avanzar con velocidad (5, 20)
+            Sino:
+                Avanzar con velocidad (20, 5)
+
+            Si la distancia está entre 126 y 130 cm:
+                Detener motores
+                Retornar (False, False) // Meta alcanzada
+
+    Definir función SolveObstacle()
+        Reproducir SoundStartContours()
+
+        Girar a la izquierda con corrección de orientación
+        Pausa(0.5)
+
+        Mientras True:
+            Medir distancia con sensor ultrasónico
+            Si distancia <= 5 cm:
+                Detener motores
+                Retroceder 10 unidades
+                Pausa(0.5)
+                Girar 90 grados a la izquierda
+
+            Si proximidad infrarroja <= 19:
+                Avanzar con velocidad (5, 10)
+            Sino si proximidad infrarroja < 27:
+                Avanzar con velocidad (10, 5)
+
+            Si se detecta la línea (Color.reflected_light_intensity <= 10):
+                Detener motores
+                Avanzar 50 unidades hacia atrás
+                Girar 90 grados a la izquierda
+                Pausa(0.5)
+                Buscar línea
+                Pausa(0.5)
+                Retornar False
+
+    Definir función move(Distance, safe = True, DisSafe = 100)
+        Si safe:
+            DistanceSafe = DisSafe
+        Calcular grados para recorrer la distancia menos un margen
+        Mover tanque por grados con velocidad normal
+        Pausa(2)
+
+    Definir función main()
+        Esperar entrada del usuario para comenzar
+        Buscar línea inicial
+        Configurar luces de resolución de laberinto
+        Reproducir SoundStart()
+
+        Solucionando = True
+        Mientras Solucionando:
+            Obstaculo, Solucionando = LineFollower()
+            Si Obstaculo:
+                Obstaculo = SolveObstacle()
+                Si no hay obstáculo:
+                    Reproducir SoundFinishContours()
+
+        Configurar luces de meta
+        Detener motores
+        Mostrar mensaje de final de ruta
+        Reproducir SoundFinisRute()
+        Animar luces de policía
+        Configurar luces de meta
+
+    Ejecutar función main() si el script es ejecutado como el programa principal
+
+Fin
+
+```
 
 #### Video
 
