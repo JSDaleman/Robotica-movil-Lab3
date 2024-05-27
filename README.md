@@ -32,7 +32,7 @@ Tabla de Contenidos
 
 ## Objetivos
 - Identificar las características de los tipos de navegación.
-- Identificar los algoritmos BUG y de soluci´on del laberinto.
+- Identificar los algoritmos BUG y de solución del laberinto.
 - Aplicar al menos dos algoritmos por comportamientos.
 
 ## Consulta bibliografica
@@ -498,27 +498,10 @@ Fin
 
 ## Conclusiones
 
-* **Limitación en la velocidad de solución:** Por la excatitud del giro usando el giro sensor y el posicionamiento adecuado del sensor de ultra sonido para la mediciones de distancia generan limitantes en la velocidad angular para el giro para evitar acumulacion de errores donde el robot perdera su correcta orientación y la necesidad de tiempos de espera para tener correctos posicionamientos de los elementos del robot.
-
-* **Eficacia en la navegación:** El algoritmo demuestra eficacia en la navegación y solución de un laberinto utilizando sensores básicos disponibles en el kit EV3. La combinación de sensores ultrasónico y de color permite al robot detectar obstáculos y la meta con precisión.
-  
-* **Simplicidad y robustez:** Utiliza una estrategia simple pero robusta basada en la detección de obstáculos y la búsqueda de rutas alternativas. Este enfoque hace que el algoritmo sea relativamente fácil de implementar y depurar, especialmente en un entorno educativo.
-  
-* **Adaptabilidad:** El algoritmo puede adaptarse a diferentes configuraciones de laberinto y tipos de obstáculos. La capacidad del robot para girar en varias direcciones según las lecturas de los sensores le permite ajustarse dinámicamente a diferentes situaciones. Siendo una limitante en el algoritmo que las ramas no pueden ser mayores a una celda lo cual podria adaptarse facilmente para evitar esta limitante.
-  
-* **Feedback visual y auditivo:** La integración de señales visuales y auditivas mejora la interacción humano-robot, proporcionando retroalimentación inmediata sobre el estado del robot y sus acciones. Esto es especialmente útil en entornos educativos para facilitar el aprendizaje y la comprensión de los procesos robóticos.
-  
-* **Limitaciones de sensores:** A pesar de su eficacia general, el algoritmo depende en gran medida de la precisión y el rango de los sensores. Las limitaciones en la precisión de los sensores ultrasónico y de color pueden afectar la capacidad del robot para detectar obstáculos y la línea de meta en ciertos escenarios.
-
-* **Tiempo de calibración:** La necesidad de calibrar el giroscopio y posicionar el sensor ultrasónico al inicio del proceso es crucial para asegurar movimientos precisos. Esto añade un paso adicional pero necesario para la correcta ejecución del algoritmo.
-
-* **Estrategia de obstáculos:** La estrategia de resolución de obstáculos es similar a la regla de la mano derecha o izquierda (Right/Left Hand Rule), ya que el robot escanea ambos lados y elige una dirección basada en la presencia de obstáculos. Esto asegura que el robot siempre tenga un plan de acción para evitar quedarse atascado.
-
-* **Aplicabilidad en entornos reales:** Aunque el algoritmo está diseñado para un entorno controlado como un laberinto, los principios subyacentes pueden aplicarse a escenarios más complejos de navegación robótica. Las técnicas de detección y evasión de obstáculos son fundamentales en robótica móvil.
-
-* **Experiencia de usuario:** La inclusión de sonidos y efectos de luces mejora significativamente la experiencia del usuario, haciendo que la interacción con el robot sea más intuitiva y agradable. Este tipo de feedback es valioso en aplicaciones educativas y demostraciones interactivas.
-
-* **Potencial educativo:** El algoritmo es una excelente herramienta educativa para enseñar principios básicos de programación, robótica y algoritmos de búsqueda. Los estudiantes pueden aprender sobre la integración de hardware y software, la lógica de control y la importancia de la calibración y la precisión en sistemas robóticos. En resumen, el algoritmo proporciona una solución efectiva y educativa para la navegación de laberintos con robots EV3. Su simplicidad, junto con la robustez y la capacidad de proporcionar retroalimentación visual y auditiva, lo convierte en una excelente herramienta tanto para principiantes como para usuarios avanzados en el campo de la robótica.
+* Dependiendo del tipo de navegación que tengamos podemos querer movernos en el espacio pasando diferentes obstaculos o buscar una ruta entre osbtaculos
+* Con los algoritmos bug tenemos diferentes comportamientos en donde tenemos que rodear todo un obstáculo y con el conocimiento de la meta u objetivo buscar el recorrido de menor distancia para lograrlo, uso de una linea guia imaginaria o real o al momento de tener una linea directa a la meta tomar dicha ruta.
+* Los algoritmos de navegación tienen diferentes objetivos y formas de funcionamiento que dependiendo de los elementos disponibles como del objetivo sera necesario la implementación especifica de alguno.
+* Usar algoritmos de navegación permite el funcionamiento autonomo en navegación de un robot.
 
 
 ## Bibliografia
