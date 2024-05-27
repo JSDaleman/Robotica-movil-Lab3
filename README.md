@@ -221,116 +221,109 @@ Los materiales empleados fueron:
 
 #### Solución presentada
 
-
+El algoritmo creado utiliza una combinación de seguidor de linea con el algoritmo Bug 2. En donde se hace el seguimiento de una linea negra en el pisohasta encontrar un obstaculo, hace todo el seguimiento del borde del obstaculo por la derecha del robot hasta encontrar de nuevo la linea de ruta,  para retomar la ruta al punto objetivo y corregir su orientación para seguir la linea.
 
 #### Algoritmo usado
 El código usado fue [Mision1.py](https://github.com/JSDaleman/Robotica-movil-Lab3/blob/main/Scripts/Mision1.py) el cual tiene la siguiente estructura:
 
 ```
-Inicio
-    Mostrar mensaje de bienvenida y laberinto
 
-    Inicializar motores y sensores
-    Definir variables y constantes
-    Configurar modos de sensores
+INICIALIZAR motores y sensores:
+    motor_a, tanque, giroscopio, sensor ultrasónico, sensor de color, sensor infrarrojo, leds, sonido
 
-    Configurar colores de luces de preparación
-    Calibrar giroscopio
+CONFIGURAR modos de los sensores:
+    sensor ultrasónico en modo distancia en cm
+    sensor de color en modo reflexión
+    sensor infrarrojo en modo proximidad
 
-    Verificar y posicionar motor_a en la posición adecuada
+DEFINIR variables:
+    CountsMotor, speed, notas musicales (Do, Re, Mi, Fa, Sol, La, Si)
 
-    Definir funciones de sonido:
-        SoundStart()
-            reproducir tono de inicio
-        SoundStartContours()
-            reproducir tono de inicio de solución de contorno
-        SoundFinisRute()
-            reproducir tono de finalización de ruta
-        SoundFinishContours()
-            reproducir tono de finalización de contorno
+ENCENDER luces de preparación en color ámbar
 
-    Definir función SearchLine()
-        Mientras True:
-            Girar a la izquierda con velocidad de 10%
-            Si se detecta la línea (Color.reflected_light_intensity <= 10):
-                Detener motores
-                Salir del bucle
+CALIBRAR giroscopio
+    Esperar hasta que la calibración esté completa
 
-    Definir función LineFollower()
-        Mientras True:
-            Medir distancia con sensor ultrasónico
-            Si distancia <= 7 cm:
-                Detener motores
-                Retornar (True, True) // Obstáculo detectado
+POSICIONAR motor_a en posición inicial
 
-            Si sobre la línea (Color.reflected_light_intensity <= 16):
-                Avanzar con velocidad (5, 20)
-            Sino:
-                Avanzar con velocidad (20, 5)
+FUNCIONES:
+    SoundStart():
+        reproducir tonos de inicio
 
-            Si la distancia está entre 126 y 130 cm:
-                Detener motores
-                Retornar (False, False) // Meta alcanzada
+    SoundStartContours():
+        reproducir tonos de inicio de contorno
 
-    Definir función SolveObstacle()
-        Reproducir SoundStartContours()
+    SoundFinisRute():
+        reproducir tonos de ruta completada
 
-        Girar a la izquierda con corrección de orientación
-        Pausa(0.5)
+    SoundFinishContours():
+        reproducir tonos de contorno completado
 
-        Mientras True:
-            Medir distancia con sensor ultrasónico
-            Si distancia <= 5 cm:
-                Detener motores
-                Retroceder 10 unidades
-                Pausa(0.5)
-                Girar 90 grados a la izquierda
+    SearchLine():
+        mientras True:
+            girar tanque a la izquierda lentamente
+            si intensidad de luz reflejada <= 10:
+                detener tanque
+                romper ciclo
 
-            Si proximidad infrarroja <= 19:
-                Avanzar con velocidad (5, 10)
-            Sino si proximidad infrarroja < 27:
-                Avanzar con velocidad (10, 5)
+    LineFollower():
+        mientras True:
+            medir distancia al obstáculo
+            si distancia <= 7 cm:
+                detener tanque
+                retornar True, True
+            si intensidad de luz reflejada <= 16:
+                mover tanque en trayectoria específica
+            si distancia entre 126 y 130 cm:
+                detener tanque
+                retornar False, False
 
-            Si se detecta la línea (Color.reflected_light_intensity <= 10):
-                Detener motores
-                Avanzar 50 unidades hacia atrás
-                Girar 90 grados a la izquierda
-                Pausa(0.5)
-                Buscar línea
-                Pausa(0.5)
-                Retornar False
+    SolveObstacle():
+        reproducir tonos de inicio de contorno
+        girar tanque a la izquierda con corrección de ángulo
+        mientras True:
+            medir distancia al obstáculo
+            si distancia <= 5 cm:
+                detener tanque
+                mover 10 cm hacia adelante
+                girar tanque a la izquierda 90 grados
+            si proximidad infrarroja <= 19:
+                mover tanque en trayectoria específica
+            si intensidad de luz reflejada <= 10:
+                detener tanque
+                mover 50 cm hacia adelante
+                girar tanque a la izquierda 90 grados
+                buscar línea
+                retornar False
 
-    Definir función move(Distance, safe = True, DisSafe = 100)
-        Si safe:
-            DistanceSafe = DisSafe
-        Calcular grados para recorrer la distancia menos un margen
-        Mover tanque por grados con velocidad normal
-        Pausa(2)
+    move(Distance, safe=True, DisSafe=100):
+        calcular grados necesarios para recorrer la distancia
+        mover tanque según los grados calculados
 
-    Definir función main()
-        Esperar entrada del usuario para comenzar
-        Buscar línea inicial
-        Configurar luces de resolución de laberinto
-        Reproducir SoundStart()
-
+FUNCIÓN PRINCIPAL main():
+    intentar:
+        esperar a que el usuario presione enter para comenzar
+        buscar línea inicial
+        encender luces en color naranja
+        reproducir tonos de inicio
         Solucionando = True
-        Mientras Solucionando:
+        mientras Solucionando:
             Obstaculo, Solucionando = LineFollower()
-            Si Obstaculo:
+            si Obstaculo:
                 Obstaculo = SolveObstacle()
-                Si no hay obstáculo:
-                    Reproducir SoundFinishContours()
+                si no hay obstáculo:
+                    reproducir tonos de contorno completado
+        encender luces en color verde
+        detener tanque
+        imprimir "Fin de la ruta"
+        reproducir tonos de ruta completada
+        animar luces de celebración en ámbar y verde
+    except Interrupción de teclado:
+        imprimir "Misión abortada"
+        detener tanque
 
-        Configurar luces de meta
-        Detener motores
-        Mostrar mensaje de final de ruta
-        Reproducir SoundFinisRute()
-        Animar luces de policía
-        Configurar luces de meta
+EJECUTAR main() si es el script principal
 
-    Ejecutar función main() si el script es ejecutado como el programa principal
-
-Fin
 
 ```
 
