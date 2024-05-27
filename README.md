@@ -188,6 +188,10 @@ Se deben resolver con navegación basada en comportamientos
 **Objetivo:** Usar uno de los algoritmos BUG para navegar de la posición 1 (P1) o partida hasta la posició 2 (P2) o meta.
 
 **Materiales:**
+- Robot EV3 y accesorios
+- Tabla o piso
+- Tablillas y postes para formar obstáculos
+- IDE EV3
 - Robot EV3 y acesorios
 - Catón paja para formar obstaculos
 - ev3devcon micro SD y antena wi-fi
@@ -240,7 +244,7 @@ Los materiales empleados fueron:
 
 **Mundo utilizado**
 
-Se planeo un mundo de 6L*2L en donde L tendria el valor de 36cm ya que seria de 1.5 del largo del robot el cual es de 24cm.
+Se planeo un mundo de 6L*2L en donde L tendria el valor de 36cm ya que seria de 1.5 del largo del robot el cual es de 24cm y con una altura de pared de 26 cm
 
 ![Plano laberintro](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/49bb2ebb-1402-4488-a8a0-0c16f2e3ec3d)
 
