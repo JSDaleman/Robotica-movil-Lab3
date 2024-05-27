@@ -206,6 +206,22 @@ Como el algoritmo requiere el conocimiento de la pose del robot en su recorrido 
 
 #### Resultados
 
+#### Resultados
+Los materiales empleados fueron:
+- Robot EV3 y acesorios
+- Caja de herramientas y mesas para obstaculos
+- micro SD y antena wi-fi
+- Software: ev3dev y visual studio code
+
+**Mundo utilizado**
+![Imagen de WhatsApp 2024-05-27 a las 09 26 17_2ace6f8d](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/35869f8c-9496-4be9-831e-f2e69c18eb5a)
+
+![Imagen de WhatsApp 2024-05-27 a las 09 27 36_519315a3](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/dec2c7ed-1300-4b2d-b1e8-1275adee237b)
+
+**Configuración robot**
+![Imagen de WhatsApp 2024-05-27 a las 09 16 32_db7a6a78](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/e84314fe-235c-4b5f-b4f3-7c68c65d18d1)
+
+
 #### Solución presentada
 
 #### Algoritmo usado
