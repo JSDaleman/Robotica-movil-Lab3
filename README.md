@@ -130,8 +130,8 @@ El algoritmo Bug 1 mejora la estrategia de Bug 0 al incluir un proceso de circun
 
 Este enfoque asegura que el robot siempre avanza hacia el objetivo de la manera más eficiente posible después de cada encuentro con un obstáculo.
 
-#### Bug 3
-El algoritmo Bug 3, también conocido como el algoritmo de la Pared Izquierda/Derecha, se basa en seguir una pared u obstáculo en una dirección específica:
+#### Bug 2
+El algoritmo Bug 2, también conocido como el algoritmo de la Pared Izquierda/Derecha, se basa en seguir una pared u obstáculo en una dirección específica:
 
 1. **Movimiento Inicial**: El robot se mueve en línea recta hacia el objetivo.
 2. **Detección de Obstáculos**: Al encontrar un obstáculo, el robot sigue la pared en una dirección predefinida (izquierda o derecha).
