@@ -215,6 +215,18 @@ Los materiales empleados fueron:
 ![Imagen de WhatsApp 2024-05-27 a las 09 27 36_519315a3](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/dec2c7ed-1300-4b2d-b1e8-1275adee237b)
 
 **Configuración robot**
+
+Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
+
+- Color en el puerto 1 acoplado a la base construida para el motor mediano empleado
+- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
+- Ultra sonido en el puerto 3 sobre el motor mediano con una base de acople
+- Infrarrojo en el puerto 4 con una base contruida para este
+
+Motores:
+- De tracción en los puertos B y C
+- Motor mediano en el puerto A con el soporte creado para este
+
 ![Imagen de WhatsApp 2024-05-27 a las 09 16 32_db7a6a78](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/e84314fe-235c-4b5f-b4f3-7c68c65d18d1)
 
 
@@ -375,6 +387,16 @@ El cual una vez implementado se vio asi
 ![Imagen de WhatsApp 2024-05-23 a las 22 22 23_4ac6df53](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/bba23b56-22fc-4280-8c8c-52970b7c6299)
 
 **Configuración robot**
+Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
+
+- Color en el puerto 1 acoplado a la base construida para el motor mediano empleado
+- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
+- Ultra sonido en el puerto 3 sobre el motor mediano con una base de acople
+- Infrarrojo en el puerto 4 con una base contruida para este
+
+Motores:
+- De tracción en los puertos B y C
+- Motor mediano en el puerto A con el soporte creado para este
 ![Imagen de WhatsApp 2024-05-27 a las 09 16 32_e451ce4d](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/766e187f-27cb-4908-b454-86f6f7eadbea)
 
 #### Solución presentada
