@@ -218,9 +218,9 @@ Los materiales empleados fueron:
 
 Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
 
-- Color en el puerto 1 acoplado a la base construida para el motor mediano empleado
+- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople
 - Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
-- Ultra sonido en el puerto 3 sobre el motor mediano con una base de acople
+- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado
 - Infrarrojo en el puerto 4 con una base contruida para este
 
 Motores:
@@ -389,10 +389,10 @@ El cual una vez implementado se vio asi
 **Configuración robot**
 Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
 
-- Color en el puerto 1 acoplado a la base construida para el motor mediano empleado
+- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople
 - Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
-- Ultra sonido en el puerto 3 sobre el motor mediano con una base de acople
-- Infrarrojo en el puerto 4 con una base contruida para este
+- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado
+
 
 Motores:
 - De tracción en los puertos B y C
