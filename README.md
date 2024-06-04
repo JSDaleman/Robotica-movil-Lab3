@@ -218,14 +218,14 @@ Los materiales empleados fueron:
 
 Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
 
-- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople
-- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
-- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado
-- Infrarrojo en el puerto 4 con una base contruida para este
+- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople para detección frontal de obstáculos
+- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es) para cambios de orientación del robot.
+- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado para detección de la linea.
+- Infrarrojo en el puerto 4 con una base contruida para este con el fin de hacer seguimiento al contorno del objeto.
 
 Motores:
-- De tracción en los puertos B y C
-- Motor mediano en el puerto A con el soporte creado para este
+- De tracción en los puertos B y C.
+- Motor mediano en el puerto A con el soporte creado para este con el fin de ser soporte del sensor de ultra sonido.
 
 ![Imagen de WhatsApp 2024-05-27 a las 09 16 32_db7a6a78](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/e84314fe-235c-4b5f-b4f3-7c68c65d18d1)
 
@@ -389,14 +389,14 @@ El cual una vez implementado se vio asi
 **Configuración robot**
 Para la configuración del robot se uso la [base motriz](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt6e7360758df8f1ea/5ec7c6dd2238e044d39d24b0/ev3-rem-driving-base.pdf?locale=es-es) agrgando un motor mediano de forma vertical como soporte de uno de los sensores. Se usaron los sensores:
 
-- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople
-- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es)
-- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado
+- Ultra sonido en el puerto 1 sobre el motor mediano con una base de acople para detección de paredes al frente y a los lados.
+- Giro sensor en el puerto 2 con el soporte de construcción de [lego](https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt92a6038ac499624e/5ec638edf555a0037565aa22/ev3-gyro-sensor-driving-base.pdf?locale=es-es) para los conocer los cambios de orientación del robot.
+- Color en el puerto 3 acoplado a la base construida para el motor mediano empleado para detección de entrada y salida del laberinto.
 
 
 Motores:
 - De tracción en los puertos B y C
-- Motor mediano en el puerto A con el soporte creado para este
+- Motor mediano en el puerto A con el soporte creado para este con el fin de girar el sensor de ultra sonido para detecciones laterales y frontal de paredes del laberinto.
 ![Imagen de WhatsApp 2024-05-27 a las 09 16 32_e451ce4d](https://github.com/JSDaleman/Robotica-movil-Lab3/assets/70998067/766e187f-27cb-4908-b454-86f6f7eadbea)
 
 #### Solución presentada
